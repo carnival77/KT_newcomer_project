@@ -6,7 +6,7 @@ import lombok.ToString;
 @Data
 @ToString
 public class UserVO {
-	private String UID;
+	private String uid;
 	private String password;
 	private String email;
 	private char gender;

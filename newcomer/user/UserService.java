@@ -14,20 +14,24 @@ public class UserService {
 		return userMapper.selectUserList();
 	}
 	
-	public UserVO getUser(String uid, String password) {
-		return userMapper.selectUser(uid,password);
+	public UserVO getUserById(String uid) {
+		return userMapper.selectUserById(uid);
 	}
 	
-	public int registerUser(UserVO userVO) {
-		return userMapper.registerUser(userVO);
+//	public UserVO getUserByPassword(String password) {
+//		return userMapper.selectUserByPassword(password);
+//	}
+	
+	public int registerUser(UserVO paramVo) {
+		return userMapper.registerUser(paramVo);
 	}
 	
-	public int updateUser(UserVO userVO) {
-		return userMapper.updateUser(userVO);
+	public int updateUser(UserVO paramVo) {
+		return userMapper.updateUser(paramVo);
 	}
 	
-	public int deleteUser(UserVO userVO) {
-		return userMapper.deleteUser(userVO);
+	public int deleteUser(String password) {
+		return userMapper.deleteUser(password);
 	}
 	
 	
