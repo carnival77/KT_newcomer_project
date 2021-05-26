@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ktds.devpro.newcomer.user.MyUserMapper">
+
+	<!-- 쿼리 처리 중 특이사항은 주석으로 남겨주세요. -->
+	<select id="selectUserList"
+		resultType="com.ktds.devpro.newcomer.user.MyUserVO">
+		select
+		uid
+		, email
+		, gender
+		, age
+		, housingtype
+		from user
+	</select>
+
+	<select id="selectUser"
+		resultType="com.ktds.devpro.newcomer.user.MyUserVO"
+		parameterType="string">
+		select
+		uid
+		, email
+		, gender
+		, age
+		, housingtype
+		from user
+		where uid = #{uid}
+	</select>
+
+	<select id="selectUserWithPassword"
+		resultType="com.ktds.devpro.newcomer.user.MyUserVO"
+		parameterType="string">
+		select
+		uid,
+		password,
+		, email
+		, gender
+		, age
+		, housingtype
+		from user
+		where uid = #{uid}
+	</select>
+
+	<insert id="registerUser"
+		parameterType="com.ktds.devpro.newcomer.user.MyUserVO">
+		insert into
+		user (
+		uid,password,email,gender,age,housingtype )
+		values (
+		#{uid},#{password},#{email},#{gender},#{age},#{housingtype})
+	</insert>
+
+	<update id="updateUser"
+		parameterType="com.ktds.devpro.newcomer.user.MyUserVO">
+		update user
+		set
+		uid=#{uid},
+		password = #{password}
+		, email =
+		#{email}
+		,
+		gender = #{gender}
+		, age = #{age}
+		, housingtype =
+		#{housingtype}
+		where
+		uid = #{uid}
+	</update>
+
+	<delete id="deleteUser" parameterType="string">
+		delete
+		from user
+		where
+		password =
+		#{password}
+	</delete>
+</mapper>
+
